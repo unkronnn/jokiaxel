@@ -20,11 +20,12 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Slider::all();
+        $about = About::first();
         $categories = Category::all();
         $testimonies = Testimoni::all();
         $products = Product::skip(0)->take(8)->get();
 
-        return view('home.index', compact('sliders', 'categories', 'testimonies', 'products'));
+return view('home.index', compact('sliders', 'categories', 'about', 'testimonies', 'products'));
     }
 
     public function products($id_subcategory)
